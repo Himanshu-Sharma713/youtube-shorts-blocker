@@ -6,7 +6,7 @@ function removeShortsElements() {
   // Hide the "Shorts" item in the sidebar (if it exists)
   const sidebarItems = document.querySelectorAll('a[title="Shorts"]');
   sidebarItems.forEach(el => el.parentElement?.remove());
-}
+} 
 
 function blockShortsNavigation(event: MouseEvent) {
   // Block navigation if the target is a "Shorts" link

@@ -12,11 +12,11 @@
     "https://www.youtube.com/*"
   ],
   "content_scripts": [
-    {
-      "matches": ["*://www.youtube.com/*"],
-      "js": ["contentScript.js"]
-    }
-  ],
+  {
+    "matches": ["*://www.youtube.com/*"],
+    "js": ["dist/contentScript.js"]
+  }
+],
   "background": {
     "service_worker": "background.js"
   },

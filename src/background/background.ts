@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("YouTube Shorts Control Extension Installed.");
+  console.log("YouTube Shorts Blocker Extension Installed.");
 });

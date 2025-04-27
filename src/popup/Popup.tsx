@@ -1,41 +1,54 @@
-import React from "react";
 import { useEffect, useState } from "react";
+import { setStorage, getStorage } from "../storage/storage";
+import React from "react";
 
-function Popup() {
+const Popup = () => {
   const [hideShorts, setHideShorts] = useState(false);
   const [blockShorts, setBlockShorts] = useState(false);
 
   useEffect(() => {
-    chrome.storage.sync.get(["hideShorts", "blockShorts"], (result: { hideShorts?: boolean; blockShorts?: boolean }) => {
-      setHideShorts(result.hideShorts || false);
-      setBlockShorts(result.blockShorts || false);
-    });
+    // Retrieve the settings from storage on mount
+    getStorage("hideShorts").then((value) => setHideShorts(value));
+    getStorage("blockShorts").then((value) => setBlockShorts(value));
   }, []);
 
   const handleHideChange = () => {
-    chrome.storage.sync.set({ hideShorts: !hideShorts });
-    setHideShorts(!hideShorts);
+    const newValue = !hideShorts;
+    setStorage("hideShorts", newValue); // Save the new value
+    setHideShorts(newValue); // Update the local state
   };
 
   const handleBlockChange = () => {
-    chrome.storage.sync.set({ blockShorts: !blockShorts });
-    setBlockShorts(!blockShorts);
+    const newValue = !blockShorts;
+    setStorage("blockShorts", newValue); // Save the new value
+    setBlockShorts(newValue); // Update the local state
   };
 
   return (
-    <div style={{ padding: "20px", width: "200px" }}>
-      <h2>YouTube Shorts</h2>
-      <div>
-        <input type="checkbox" checked={hideShorts} onChange={handleHideChange} />
-        <label style={{ marginLeft: "8px" }}>Hide Shorts</label>
+    <div style={{ padding: "1rem", width: "200px" }}>
+      <h2>YouTube Shorts Control</h2>
+      <div style={{ marginTop: "1rem" }}>
+        <label>
+          <input
+            type="checkbox"
+            checked={hideShorts}
+            onChange={handleHideChange}
+          />
+          Hide Shorts
+        </label>
       </div>
-      <div style={{ marginTop: "10px" }}>
-        <input type="checkbox" checked={blockShorts} onChange={handleBlockChange} />
-        <label style={{ marginLeft: "8px" }}>Block Shorts</label>
+      <div style={{ marginTop: "0.5rem" }}>
+        <label>
+          <input
+            type="checkbox"
+            checked={blockShorts}
+            onChange={handleBlockChange}
+          />
+          Block Shorts
+        </label>
       </div>
     </div>
   );
-}
+};
 
 export default Popup;
- 

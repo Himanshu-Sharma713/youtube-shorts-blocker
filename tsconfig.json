@@ -1,21 +1,13 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "types": [
-      "chrome"
-    ],
-    "target": "ES5",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "strict": true,
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "jsx": "react",
-    "esModuleInterop": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ]
+  "include": ["src"]
 }

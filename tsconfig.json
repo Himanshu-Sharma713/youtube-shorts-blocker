@@ -9,5 +9,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "dist/contentScript.js", "dist/background.js"]
+  "include": ["src", "dist/contentScript.js", "dist/background.js", "dist/storage.js"]
 }

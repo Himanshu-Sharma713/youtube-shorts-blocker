@@ -84,7 +84,7 @@ A simple Chrome Extension built using **React** + **TypeScript** that allows use
 1. **Clone the repository:**
 
     ```bash
-    git clone 
+    git clone https://github.com/Himanshu-Sharma713/youtube-shorts-blocker
     cd youtube-shorts-blocker
     ```
 
